@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>About Us | DOSCA CATERERS</title>
+
+    <link rel="icon" type="image/png" href="Dosca Luxury Catering Emblem.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #080808;
+            color: white;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+        }
+
+        :root {
+            --gold: #d4af37;
+            --dark: #080808;
+            --light-dark: #111;
+        }
+
+        /* NAVIGATION */
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 7%;
+            background: #050505;
+            border-bottom: 1px solid rgba(212,175,55,0.25);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-family: 'Playfair Display', serif;
+            font-size: 27px;
+            color: var(--gold);
+            letter-spacing: 3px;
+        }
+
+        .logo img {
+            width: 45px;
+            height: 45px;
+            object-fit: contain;
+        }
+
+        .navbar ul {
+            display: flex;
+            list-style: none;
+            gap: 28px;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: white;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .navbar a:hover,
+        .navbar a.active {
+            color: var(--gold);
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 430px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 50px 20px;
+
+            background:
+                linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.85)),
+                url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1800")
+                center/cover;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(40px, 6vw, 65px);
+            color: var(--gold);
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            max-width: 650px;
+            margin: auto;
+            color: #eee;
+        }
+
+        .subtitle {
+            color: var(--gold);
+            letter-spacing: 4px;
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+
+        /* INTRODUCTION */
+
+        .intro {
+            padding: 90px 8%;
+            text-align: center;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            color: var(--gold);
+            font-size: 42px;
+            margin-bottom: 25px;
+        }
+
+        .intro-text {
+            max-width: 850px;
+            margin: auto;
+            color: #bbb;
+            font-size: 16px;
+            line-height: 2;
+        }
+
+        /* MISSION AND VISION */
+
+        .purpose {
+            padding: 70px 8%;
+            background: #101010;
+        }
+
+        .purpose-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+        }
+
+        .purpose-card {
+            background: #080808;
+            padding: 35px;
+            border: 1px solid rgba(212,175,55,0.2);
+            border-radius: 10px;
+            transition: 0.4s;
+        }
+
+        .purpose-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--gold);
+            box-shadow: 0 10px 30px rgba(212,175,55,0.1);
+        }
+
+        .purpose-card h3 {
+            color: var(--gold);
+            font-family: 'Playfair Display', serif;
+            font-size: 25px;
+            margin-bottom: 15px;
+        }
+
+        .purpose-card p {
+            color: #aaa;
+            line-height: 1.9;
+        }
+
+        /* VALUES */
+
+        .values {
+            padding: 85px 8%;
+            text-align: center;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .value-card {
+            padding: 30px 20px;
+            background: #111;
+            border: 1px solid rgba(212,175,55,0.2);
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+
+        .value-card:hover {
+            transform: translateY(-7px);
+            border-color: var(--gold);
+        }
+
+        .value-card h3 {
+            color: var(--gold);
+            font-family: 'Playfair Display', serif;
+            font-size: 21px;
+            margin-bottom: 12px;
+        }
+
+        .value-card p {
+            color: #aaa;
+            font-size: 14px;
+        }
+
+        /* CONTACT */
+
+        .contact {
+            padding: 85px 20px;
+            text-align: center;
+            background:
+                linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.9)),
+                url("https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=1600")
+                center/cover;
+        }
+
+        .contact h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--gold);
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .contact p {
+            color: #ddd;
+            margin-bottom: 15px;
+        }
+
+        .contact-details {
+            margin: 25px 0;
+        }
+
+        .contact-details p {
+            margin: 10px;
+        }
+
+        .contact-details strong {
+            color: var(--gold);
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 30px;
+            background: var(--gold);
+            color: #080808;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: white;
+            transform: translateY(-4px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--gold);
+            border: 1px solid var(--gold);
+        }
+
+        .btn-outline:hover {
+            background: var(--gold);
+            color: #080808;
+        }
+
+        /* FOOTER */
+
+        footer {
+            padding: 30px 20px;
+            text-align: center;
+            background: #050505;
+            border-top: 1px solid rgba(212,175,55,0.2);
+        }
+
+        footer p {
+            color: #888;
+            font-size: 13px;
+        }
+
+        /* MOBILE */
+
+        @media(max-width: 700px) {
+
+            .navbar {
+                flex-direction: column;
+                gap: 18px;
+            }
+
+            .navbar ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .section-title {
+                font-size: 33px;
+            }
+
+            .intro {
+                padding: 60px 6%;
+            }
+
+            .purpose,
+            .values {
+                padding: 60px 6%;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+
+    <header>
+
+        <nav class="navbar">
+
+            <div class="logo">
+                <img src="Dosca Luxury Catering Emblem.png" alt="DOSCA Emblem">
+                DOSCA
+            </div>
+
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html" class="active">About</a></li>
+                <li><a href="services.html">Services</a></li>
+          
+                <li><a href="gallery.html">Gallery</a></li>
+               
+            </ul>
+
+        </nav>
+
+    </header>
+
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div>
+
+            <p class="subtitle">GET TO KNOW US</p>
+
+            <h1>Our Story</h1>
+
+            <p>
+                Bringing people together through exceptional food,
+                unforgettable celebrations and outstanding hospitality.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT US -->
+
+    <section class="intro">
+
+        <p class="subtitle">WHO WE ARE</p>
+
+        <h2 class="section-title">A Taste of Excellence</h2>
+
+        <p class="intro-text">
+
+            At <strong>DOSCA CATERERS</strong>, we believe every occasion
+            deserves something extraordinary.
+
+            We are passionate about creating memorable dining experiences
+            through quality food, thoughtful presentation and exceptional
+            customer service.
+
+            From elegant weddings and corporate gatherings to birthdays,
+            graduations and intimate celebrations, we bring creativity,
+            professionalism and attention to detail to every event.
+
+            <br><br>
+
+            Our goal is simple: to make every occasion special
+            and every guest feel valued.
+
+        </p>
+
+    </section>
+
+
+    <!-- MISSION AND VISION -->
+
+    <section class="purpose">
+
+        <div class="purpose-grid">
+
+            <div class="purpose-card">
+
+                <h3>Our Mission</h3>
+
+                <p>
+                    To provide exceptional catering experiences through
+                    quality cuisine, professional service and attention
+                    to detail, making every client's occasion memorable.
+                </p>
+
+            </div>
+
+
+            <div class="purpose-card">
+
+                <h3>Our Vision</h3>
+
+                <p>
+                    To become a trusted and recognised catering brand
+                    known for excellence, creativity, reliability
+                    and unforgettable hospitality.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- OUR VALUES -->
+
+    <section class="values">
+
+        <p class="subtitle">WHAT DEFINES US</p>
+
+        <h2 class="section-title">Our Core Values</h2>
+
+        <div class="values-grid">
+
+            <div class="value-card">
+
+                <h3>Excellence</h3>
+
+                <p>
+                    We strive to deliver quality in everything we do.
+                </p>
+
+            </div>
+
+
+            <div class="value-card">
+
+                <h3>Creativity</h3>
+
+                <p>
+                    We bring fresh ideas and beautiful presentation
+                    to every occasion.
+                </p>
+
+            </div>
+
+
+            <div class="value-card">
+
+                <h3>Reliability</h3>
+
+                <p>
+                    We value professionalism, preparation
+                    and keeping our commitments.
+                </p>
+
+            </div>
+
+
+            <div class="value-card">
+
+                <h3>Hospitality</h3>
+
+                <p>
+                    We believe every guest deserves care,
+                    respect and excellent service.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+
+    <section class="contact">
+
+        <p class="subtitle">LET'S CONNECT</p>
+
+        <h2>We'd Love to Hear From You</h2>
+
+        <p>
+            Planning an event? Have a question?
+            Get in touch and let's make it special.
+        </p>
+
+        <div class="contact-details">
+
+            <p>
+                <strong>Email:</strong>
+                info@doscacaterers.com
+            </p>
+
+            <p>
+                <strong>Phone:</strong>
+                0718622515
+            </p>
+
+        </div>
+
+        <div class="buttons">
+
+            <a href="booking.html" class="btn">
+                Book DOSCA
+            </a>
+
+            <a href="https://wa.me/254718622515"
+               target="_blank"
+               rel="noopener"
+               class="btn btn-outline">
+                WhatsApp Us
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            &copy; 2026 DOSCA CATERERS.
+            All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html>

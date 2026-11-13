@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Gallery | DOSCA CATERERS</title>
+
+    <link rel="icon" type="image/png" href="Dosca Luxury Catering Emblem.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #080808;
+            color: white;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* NAVIGATION */
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 7%;
+            background: #050505;
+            border-bottom: 1px solid rgba(212,175,55,0.25);
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            color: #d4af37;
+            letter-spacing: 3px;
+        }
+
+        .navbar ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: white;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .navbar a:hover,
+        .navbar a.active {
+            color: #d4af37;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 50px 20px;
+
+            background:
+                linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.85)),
+                url("https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=1800")
+                center/cover;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(40px, 6vw, 65px);
+            color: #d4af37;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            max-width: 650px;
+            margin: auto;
+            color: #eee;
+            line-height: 1.8;
+        }
+
+        /* GALLERY INTRO */
+
+        .gallery-section {
+            padding: 80px 7%;
+            text-align: center;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            color: #d4af37;
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .section-description {
+            color: #aaa;
+            margin-bottom: 40px;
+        }
+
+        /* FILTER BUTTONS */
+
+        .filters {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 45px;
+        }
+
+        .filter-btn {
+            padding: 11px 24px;
+            border: 1px solid #d4af37;
+            background: transparent;
+            color: #d4af37;
+            cursor: pointer;
+            border-radius: 30px;
+            font-family: 'Poppins', sans-serif;
+            transition: 0.3s;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: #d4af37;
+            color: #080808;
+        }
+
+        /* GALLERY GRID */
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 22px;
+        }
+
+        .gallery-item {
+            position: relative;
+            height: 300px;
+            overflow: hidden;
+            border-radius: 10px;
+            border: 1px solid rgba(212,175,55,0.2);
+            cursor: pointer;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.12);
+        }
+
+        .overlay {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: end;
+            padding: 25px;
+
+            background: linear-gradient(
+                transparent,
+                rgba(0,0,0,0.9)
+            );
+
+            opacity: 0;
+            transition: 0.4s;
+        }
+
+        .gallery-item:hover .overlay {
+            opacity: 1;
+        }
+
+        .overlay h3 {
+            color: #d4af37;
+            font-family: 'Playfair Display', serif;
+            font-size: 23px;
+        }
+
+        /* LIGHTBOX */
+
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.95);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            padding: 20px;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 85vh;
+            object-fit: contain;
+            border: 2px solid #d4af37;
+            border-radius: 8px;
+        }
+
+        .close {
+            position: absolute;
+            top: 25px;
+            right: 35px;
+            font-size: 40px;
+            color: #d4af37;
+            cursor: pointer;
+        }
+
+        /* CTA */
+
+        .cta {
+            padding: 80px 20px;
+            text-align: center;
+            background: #111;
+        }
+
+        .cta h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 38px;
+            color: #d4af37;
+            margin-bottom: 15px;
+        }
+
+        .cta p {
+            color: #aaa;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background: #d4af37;
+            color: #080808;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: white;
+            transform: translateY(-3px);
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: #050505;
+            text-align: center;
+            padding: 30px 20px;
+            border-top: 1px solid rgba(212,175,55,0.2);
+        }
+
+        footer p {
+            color: #888;
+            font-size: 13px;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* MOBILE */
+
+        @media(max-width: 700px) {
+            .navbar {
+                flex-direction: column;
+                gap: 18px;
+            }
+
+            .navbar ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .gallery-section {
+                padding: 55px 5%;
+            }
+
+            .gallery-item {
+                height: 250px;
+            }
+
+            .section-title {
+                font-size: 34px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+
+    <nav class="navbar">
+
+        <div class="logo">DOSCA</div>
+
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="gallery.html" class="active">Gallery</a></li>
+            
+        </ul>
+
+    </nav>
+
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div>
+            <h1>Our Gallery</h1>
+
+            <p>
+                A glimpse into the elegance, creativity and unforgettable
+                experiences that define DOSCA CATERERS.
+                Every event tells a story. Explore ours.
+            </p>
+        </div>
+
+    </section>
+
+
+    <!-- GALLERY -->
+
+    <section class="gallery-section">
+
+        <h2 class="section-title">Moments Worth Remembering</h2>
+
+        <p class="section-description">
+            Explore our world of food, celebrations and exceptional presentation.
+        </p>
+
+
+        <!-- FILTERS -->
+
+        <div class="filters">
+
+            <button class="filter-btn active" data-filter="all">All</button>
+
+            <button class="filter-btn" data-filter="food">Food</button>
+
+            <button class="filter-btn" data-filter="weddings">Weddings</button>
+
+            <button class="filter-btn" data-filter="events">Events</button>
+
+            <button class="filter-btn" data-filter="setup">Table Setup</button>
+
+        </div>
+
+
+        <!-- PHOTOS -->
+
+        <div class="gallery-grid">
+
+            <div class="gallery-item" data-category="weddings">
+                <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=900" alt="Elegant wedding reception" loading="lazy">
+                <div class="overlay"><h3>Elegant Weddings</h3></div>
+            </div>
+
+            <div class="gallery-item" data-category="food">
+                <img src="https://images.unsplash.com/photo-1547592180-85f173990554?w=900" alt="Beautifully presented food" loading="lazy">
+                <div class="overlay"><h3>Food Presentation</h3></div>
+            </div>
+
+            <div class="gallery-item" data-category="events">
+                <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=900" alt="Special event celebration" loading="lazy">
+                <div class="overlay"><h3>Special Celebrations</h3></div>
+            </div>
+
+            <div class="gallery-item" data-category="setup">
+                <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=900" alt="Elegant dining arrangement" loading="lazy">
+                <div class="overlay"><h3>Dining Experience</h3></div>
+            </div>
+
+            <div class="gallery-item" data-category="food">
+                <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=900" alt="Fresh food platter" loading="lazy">
+                <div class="overlay"><h3>Fresh Cuisine</h3></div>
+            </div>
+
+            <div class="gallery-item" data-category="events">
+                <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=900" alt="Celebration table" loading="lazy">
+                <div class="overlay"><h3>Beautiful Celebrations</h3></div>
+            </div>
+
+            <div class="gallery-item" data-category="food">
+                <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=900" alt="Delicious prepared meal" loading="lazy">
+                <div class="overlay"><h3>Delicious Cuisine</h3></div>
+            </div>
+
+            <div class="gallery-item" data-category="setup">
+                <img src="https://images.unsplash.com/photo-1507504031003-b417219a0fde?w=900" alt="Beautiful event table arrangement" loading="lazy">
+                <div class="overlay"><h3>Luxury Table Setup</h3></div>
+            </div>
+
+            <div class="gallery-item" data-category="weddings">
+                <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?w=900" alt="Wedding celebration" loading="lazy">
+                <div class="overlay"><h3>Wedding Moments</h3></div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- LIGHTBOX -->
+
+    <div class="lightbox" id="lightbox">
+
+        <span class="close" id="closeLightbox">&times;</span>
+
+        <img src="" alt="Expanded gallery photograph" id="lightboxImage">
+
+    </div>
+
+
+    <!-- CALL TO ACTION -->
+
+    <section class="cta">
+
+        <h2>Let's Create Your Moment</h2>
+
+        <p>
+            Planning something special?
+            Let DOSCA CATERERS make it unforgettable.
+        </p>
+
+        <a href="booking.html" class="btn">Book Us Now</a>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+        <p>&copy; 2026 DOSCA CATERERS. All Rights Reserved.</p>
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        // FILTER PHOTOS
+
+        const filterButtons = document.querySelectorAll(".filter-btn");
+        const galleryItems = document.querySelectorAll(".gallery-item");
+
+        filterButtons.forEach(button => {
+
+            button.addEventListener("click", function() {
+
+                filterButtons.forEach(btn => {
+                    btn.classList.remove("active");
+                });
+
+                this.classList.add("active");
+
+                const filter = this.getAttribute("data-filter");
+
+                galleryItems.forEach(item => {
+
+                    const category = item.getAttribute("data-category");
+
+                    if (filter === "all" || filter === category) {
+                        item.style.display = "block";
+                    } else {
+                        item.style.display = "none";
+                    }
+
+                });
+
+            });
+
+        });
+
+
+        // OPEN LIGHTBOX
+
+        const lightbox = document.getElementById("lightbox");
+        const lightboxImage = document.getElementById("lightboxImage");
+        const closeLightbox = document.getElementById("closeLightbox");
+
+        galleryItems.forEach(item => {
+
+            item.addEventListener("click", function() {
+
+                const image = this.querySelector("img");
+
+                lightboxImage.src = image.src;
+
+                lightbox.style.display = "flex";
+
+            });
+
+        });
+
+
+        // CLOSE LIGHTBOX
+
+        closeLightbox.addEventListener("click", function() {
+            lightbox.style.display = "none";
+        });
+
+
+        lightbox.addEventListener("click", function(event) {
+
+            if (event.target === lightbox) {
+                lightbox.style.display = "none";
+            }
+
+        });
+
+
+        // CLOSE WITH ESCAPE KEY
+
+        document.addEventListener("keydown", function(event) {
+
+            if (event.key === "Escape") {
+                lightbox.style.display = "none";
+            }
+
+        });
+
+    </script>
+
+</body>
+</html>

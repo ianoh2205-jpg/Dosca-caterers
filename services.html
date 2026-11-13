@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Our Services | DOSCA CATERERS</title>
+
+    <link rel="icon" type="image/png" href="Dosca Luxury Catering Emblem.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styled.css">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: #080808;
+            color: #fff;
+        }
+
+        /* NAVIGATION */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 7%;
+            background: #050505;
+            border-bottom: 1px solid rgba(201,164,76,0.25);
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 27px;
+            color: #d4af37;
+            letter-spacing: 2px;
+        }
+
+        .navbar ul {
+            display: flex;
+            list-style: none;
+            gap: 28px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .navbar a:hover,
+        .navbar a.active {
+            color: #d4af37;
+        }
+
+        /* HERO */
+        .services-hero {
+            min-height: 390px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 50px 20px;
+            background:
+                linear-gradient(rgba(0,0,0,0.72), rgba(0,0,0,0.85)),
+                url("https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=1800") center/cover;
+        }
+
+        .services-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(38px, 6vw, 65px);
+            color: #d4af37;
+            margin-bottom: 15px;
+        }
+
+        .services-hero p {
+            max-width: 650px;
+            margin: auto;
+            line-height: 1.8;
+            color: #eee;
+        }
+
+        .gold-text {
+            color: #d4af37;
+        }
+
+        /* SERVICES */
+        .services {
+            padding: 80px 7%;
+            text-align: center;
+        }
+
+        .section-heading {
+            font-family: 'Playfair Display', serif;
+            font-size: 40px;
+            color: #d4af37;
+            margin-bottom: 12px;
+        }
+
+        .section-description {
+            color: #aaa;
+            margin-bottom: 45px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: #111;
+            border: 1px solid rgba(212,175,55,0.2);
+            border-radius: 12px;
+            overflow: hidden;
+            text-align: left;
+            transition: 0.4s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: #d4af37;
+            box-shadow: 0 15px 35px rgba(212,175,55,0.13);
+        }
+
+        .service-image {
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s;
+        }
+
+        .service-card:hover .service-image {
+            transform: scale(1.05);
+        }
+
+        .service-content {
+            padding: 25px;
+        }
+
+        .service-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            color: #d4af37;
+            margin-top: 0;
+        }
+
+        .service-card p {
+            color: #bbb;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .service-card ul {
+            color: #ddd;
+            padding-left: 20px;
+            line-height: 2;
+            font-size: 13px;
+        }
+
+        /* WHY CHOOSE US */
+        .why-us {
+            padding: 80px 7%;
+            background: #101010;
+            text-align: center;
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+            margin-top: 45px;
+        }
+
+        .why-card {
+            padding: 30px 20px;
+            background: #080808;
+            border: 1px solid rgba(212,175,55,0.2);
+            border-radius: 10px;
+        }
+
+        .why-card h3 {
+            color: #d4af37;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .why-card p {
+            color: #aaa;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        /* PROCESS */
+        .process {
+            padding: 80px 7%;
+            text-align: center;
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 45px;
+        }
+
+        .process-card {
+            padding: 25px;
+        }
+
+        .process-number {
+            font-size: 35px;
+            color: #d4af37;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .process-card h3 {
+            color: #fff;
+        }
+
+        .process-card p {
+            color: #aaa;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        /* CTA */
+        .cta {
+            padding: 80px 20px;
+            text-align: center;
+            background:
+                linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)),
+                url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1600") center/cover;
+        }
+
+        .cta h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 40px;
+            color: #d4af37;
+        }
+
+        .cta p {
+            color: #ddd;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 30px;
+            background: #d4af37;
+            color: #080808;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #fff;
+            transform: translateY(-3px);
+        }
+
+        /* FOOTER */
+        footer {
+            padding: 30px 20px;
+            background: #050505;
+            text-align: center;
+            border-top: 1px solid rgba(212,175,55,0.2);
+        }
+
+        footer p {
+            color: #888;
+            font-size: 13px;
+        }
+
+        /* MOBILE */
+        @media(max-width: 700px) {
+            .navbar {
+                flex-direction: column;
+                gap: 18px;
+            }
+
+            .navbar ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .services {
+                padding: 55px 5%;
+            }
+
+            .section-heading {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <nav class="navbar">
+        <div class="logo">DOSCA</div>
+
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html" class="active">Services</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            
+        </ul>
+    </nav>
+
+
+    <!-- HERO SECTION -->
+    <section class="services-hero">
+        <div>
+            <h1>Our Services</h1>
+
+            <p>
+                Extraordinary events deserve exceptional food.
+                At <span class="gold-text">DOSCA CATERERS</span>,
+                we transform ordinary occasions into unforgettable experiences
+                through quality cuisine and outstanding service.
+            </p>
+        </div>
+    </section>
+
+
+    <!-- SERVICES SECTION -->
+    <section class="services">
+
+        <h2 class="section-heading">What We Do</h2>
+
+        <p class="section-description">
+            Exceptional catering for every special occasion.
+        </p>
+
+        <div class="services-grid">
+
+            <!-- WEDDINGS -->
+            <div class="service-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=900"
+                    alt="Elegant wedding reception"
+                    class="service-image"
+                    loading="lazy"
+                >
+
+                <div class="service-content">
+                    <h3>Wedding Catering</h3>
+
+                    <p>
+                        Make your special day even more memorable with
+                        elegant food presentation and exceptional dining.
+                    </p>
+
+                    <ul>
+                        <li>Wedding receptions</li>
+                        <li>Traditional weddings</li>
+                        <li>Buffet arrangements</li>
+                        <li>Professional serving staff</li>
+                    </ul>
+                </div>
+
+            </div>
+
+
+            <!-- CORPORATE -->
+            <div class="service-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=900"
+                    alt="Elegant restaurant dining setup"
+                    class="service-image"
+                    loading="lazy"
+                >
+
+                <div class="service-content">
+                    <h3>Corporate Catering</h3>
+
+                    <p>
+                        Impress your clients, employees and business partners
+                        with professionally organised catering.
+                    </p>
+
+                    <ul>
+                        <li>Business meetings</li>
+                        <li>Conferences</li>
+                        <li>Office celebrations</li>
+                        <li>Corporate events</li>
+                    </ul>
+                </div>
+
+            </div>
+
+
+            <!-- BIRTHDAYS -->
+            <div class="service-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=900"
+                    alt="Delicious food prepared for a celebration"
+                    class="service-image"
+                    loading="lazy"
+                >
+
+                <div class="service-content">
+                    <h3>Birthday Parties</h3>
+
+                    <p>
+                        Celebrate another year with delicious meals,
+                        beautiful presentation and stress-free catering.
+                    </p>
+
+                    <ul>
+                        <li>Birthday celebrations</li>
+                        <li>Private parties</li>
+                        <li>Family gatherings</li>
+                        <li>Customised menus</li>
+                    </ul>
+                </div>
+
+            </div>
+
+
+            <!-- GRADUATIONS -->
+            <div class="service-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1547592180-85f173990554?w=900"
+                    alt="Beautifully prepared food for a graduation celebration"
+                    class="service-image"
+                    loading="lazy"
+                >
+
+                <div class="service-content">
+                    <h3>Graduation Events</h3>
+
+                    <p>
+                        Celebrate academic achievements with great food
+                        and memorable experiences for family and friends.
+                    </p>
+
+                    <ul>
+                        <li>Graduation parties</li>
+                        <li>Family celebrations</li>
+                        <li>Outdoor events</li>
+                        <li>Buffet catering</li>
+                    </ul>
+                </div>
+
+            </div>
+
+
+            <!-- SPECIAL OCCASIONS -->
+            <div class="service-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1515003197210-e0cd7184f8b5?w=900"
+                    alt="Beautifully presented catering food"
+                    class="service-image"
+                    loading="lazy"
+                >
+
+                <div class="service-content">
+                    <h3>Special Occasions</h3>
+
+                    <p>
+                        Whatever the occasion, we bring quality food
+                        and professional service to your celebration.
+                    </p>
+
+                    <ul>
+                        <li>Baby showers</li>
+                        <li>Burial ceremonies</li>
+                        <li>Family gatherings</li>
+                        <li>Traditional ceremonies</li>
+                    </ul>
+                </div>
+
+            </div>
+
+
+            <!-- CUSTOM CATERING -->
+            <div class="service-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1547592180-85f173990554?w=900"
+                    alt="Catering food arranged for an event"
+                    class="service-image"
+                    loading="lazy"
+                >
+
+                <div class="service-content">
+                    <h3>Custom Catering</h3>
+
+                    <p>
+                        Have a unique event in mind? We work with you
+                        to create a catering experience that suits your needs.
+                    </p>
+
+                    <ul>
+                        <li>Customised menus</li>
+                        <li>Flexible packages</li>
+                        <li>Personalised arrangements</li>
+                        <li>Event-specific catering</li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- WHY CHOOSE US -->
+    <section class="why-us">
+
+        <h2 class="section-heading">Why Choose DOSCA?</h2>
+
+        <p class="section-description">
+            More than food. We deliver experiences.
+        </p>
+
+        <div class="why-grid">
+
+            <div class="why-card">
+                <h3>Quality Ingredients</h3>
+                <p>
+                    We focus on delicious meals prepared with care
+                    and attention to quality.
+                </p>
+            </div>
+
+            <div class="why-card">
+                <h3>Professional Service</h3>
+                <p>
+                    Our goal is to make every event organised,
+                    enjoyable and stress-free.
+                </p>
+            </div>
+
+            <div class="why-card">
+                <h3>Beautiful Presentation</h3>
+                <p>
+                    We believe great food should look as impressive
+                    as it tastes.
+                </p>
+            </div>
+
+            <div class="why-card">
+                <h3>Custom Packages</h3>
+                <p>
+                    We work around your event requirements,
+                    preferences and budget.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- HOW IT WORKS -->
+    <section class="process">
+
+        <h2 class="section-heading">How It Works</h2>
+
+        <p class="section-description">
+            Planning your event with DOSCA is simple.
+        </p>
+
+        <div class="process-grid">
+
+            <div class="process-card">
+                <div class="process-number">01</div>
+                <h3>Make an Enquiry</h3>
+                <p>
+                    Tell us about your event, date, location
+                    and number of guests.
+                </p>
+            </div>
+
+            <div class="process-card">
+                <div class="process-number">02</div>
+                <h3>Plan Your Package</h3>
+                <p>
+                    We discuss your catering requirements
+                    and suitable arrangements.
+                </p>
+            </div>
+
+            <div class="process-card">
+                <div class="process-number">03</div>
+                <h3>Enjoy Your Event</h3>
+                <p>
+                    Let us handle the catering while you
+                    enjoy your special occasion.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CALL TO ACTION -->
+    <section class="cta">
+
+        <h2>Let's Make Your Event Special</h2>
+
+        <p>
+            Tell us what you're celebrating.
+            We'll help you make it unforgettable.
+        </p>
+
+        <a href="booking.html" class="btn">
+            Book DOSCA Now
+        </a>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+        <p>
+            &copy; 2026 DOSCA CATERERS.
+            All Rights Reserved.
+        </p>
+    </footer>
+
+
+</body>
+</html>

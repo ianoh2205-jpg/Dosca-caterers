@@ -1,0 +1,170 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOSCA | Admin Dashboard</title>
+    <link rel="icon" type="image/png" href="Dosca Luxury Catering Emblem.png">
+    <link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+
+<div id="loginSection" class="login-container">
+
+    <div class="login-box">
+        <h1>DOSCA</h1>
+        <p class="gold">CATERERS ADMINISTRATION</p>
+
+        <h2>Welcome Back</h2>
+        <p>Sign in to manage your business.</p>
+
+        <form id="loginForm">
+            <input type="email" id="email"
+            placeholder="Admin Email" required>
+
+            <input type="password" id="password"
+            placeholder="Password" required>
+
+            <button type="submit">SIGN IN</button>
+        </form>
+
+        <p id="loginError"></p>
+    </div>
+
+</div>
+
+
+<div id="dashboardSection" style="display:none;">
+
+    <aside class="sidebar">
+
+        <div class="brand">
+            <h1>DOSCA</h1>
+            <p>CATERERS</p>
+        </div>
+
+        <nav>
+            <a href="#" class="active">Dashboard</a>
+            <a href="#bookings">All Bookings</a>
+            <a href="#bookings">Pending Bookings</a>
+            <a href="#bookings">Approved Bookings</a>
+            <a href="#bookings">Rejected Bookings</a>
+        </nav>
+
+        <button id="logoutBtn" class="logout">
+            LOG OUT
+        </button>
+
+    </aside>
+
+
+    <main class="main-content">
+
+        <header>
+            <div>
+                <h2>Dashboard Overview</h2>
+                <p>Welcome to DOSCA management centre.</p>
+            </div>
+
+            <div class="admin-profile">
+                <span>ADMIN</span>
+            </div>
+        </header>
+
+
+        <section class="stats">
+
+            <div class="card">
+                <p>Total Bookings</p>
+                <h2 id="totalBookings">0</h2>
+            </div>
+
+            <div class="card">
+                <p>Pending</p>
+                <h2 id="pendingBookings">0</h2>
+            </div>
+
+            <div class="card">
+                <p>Approved</p>
+                <h2 id="approvedBookings">0</h2>
+            </div>
+
+            <div class="card">
+                <p>Rejected</p>
+                <h2 id="rejectedBookings">0</h2>
+            </div>
+
+        </section>
+
+
+        <section class="booking-section" id="bookings">
+
+            <div class="section-heading">
+                <div>
+                    <h2>Recent Bookings</h2>
+                    <p>Manage your customer reservations.</p>
+                </div>
+            </div>
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>CLIENT</th>
+                            <th>EVENT</th>
+                            <th>DATE</th>
+                            <th>GUESTS</th>
+                            <th>STATUS</th>
+                            <th>ACTION</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="bookingTable">
+
+                        <tr>
+                            <td colspan="6">Loading bookings...</td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+<!-- BOOKING DETAILS MODAL -->
+
+<div id="bookingModal" class="modal">
+
+    <div class="modal-content">
+
+        <span id="closeModal" class="close">&times;</span>
+
+        <h2>BOOKING DETAILS</h2>
+
+        <div id="bookingDetails"></div>
+
+        <div class="modal-buttons">
+
+            <button id="approveModal">APPROVE</button>
+
+            <button id="rejectModal">REJECT</button>
+
+        </div>
+
+    </div>
+
+</div>
+</div>
+
+
+<script type="module" src="admin.js"></script>
+
+</body>
+</html>

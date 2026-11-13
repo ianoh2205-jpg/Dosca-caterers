@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>DOSCA CATERERS | Excellence in Every Serving</title>
+
+    <link rel="icon" type="image/png" href="Dosca Luxury Catering Emblem.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --gold: #d4af37;
+            --dark: #080808;
+            --light-dark: #111;
+            --white: #ffffff;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--dark);
+            color: var(--white);
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* NAVIGATION */
+
+        .navbar {
+            width: 100%;
+            min-height: 85px;
+            padding: 12px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(5,5,5,0.97);
+            border-bottom: 1px solid rgba(212,175,55,0.25);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--gold);
+            font-family: 'Playfair Display', serif;
+            font-size: 27px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .logo img {
+            width: 55px;
+            height: 55px;
+            object-fit: contain;
+        }
+
+        .logo small {
+            display: block;
+            font-family: 'Inter', sans-serif;
+            font-size: 10px;
+            letter-spacing: 5px;
+            color: white;
+            text-align: center;
+        }
+
+        .navbar nav {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .navbar nav a {
+            text-decoration: none;
+            color: #ddd;
+            font-size: 14px;
+            transition: 0.3s;
+            position: relative;
+        }
+
+        .navbar nav a::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            bottom: -7px;
+            left: 0;
+            transition: 0.3s;
+        }
+
+        .navbar nav a:hover::after,
+        .navbar nav a.active::after {
+            width: 100%;
+        }
+
+        .navbar nav a:hover,
+        .navbar nav a.active {
+            color: var(--gold);
+        }
+
+        .nav-button {
+            text-decoration: none;
+            color: #080808;
+            background: var(--gold);
+            padding: 12px 23px;
+            border-radius: 4px;
+            font-size: 13px;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        .nav-button:hover {
+            background: white;
+            transform: translateY(-3px);
+        }
+
+        /* HERO SECTION */
+
+        .hero {
+            min-height: 690px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding: 80px 9%;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(0,0,0,0.94) 0%,
+                    rgba(0,0,0,0.75) 50%,
+                    rgba(0,0,0,0.35) 100%
+                ),
+                url("https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=2000")
+                center/cover no-repeat;
+        }
+
+        .hero-content {
+            max-width: 750px;
+            animation: slideUp 1s ease;
+        }
+
+        .subtitle {
+            color: var(--gold);
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 5px;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(42px, 6vw, 76px);
+            line-height: 1.15;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span {
+            color: var(--gold);
+            font-style: italic;
+        }
+
+        .hero-text {
+            max-width: 570px;
+            color: #ccc;
+            font-size: 16px;
+            line-height: 1.9;
+            margin-bottom: 35px;
+        }
+
+        /* HERO BUTTONS */
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+        }
+
+        .primary-button,
+        .secondary-button {
+            display: inline-block;
+            text-decoration: none;
+            padding: 15px 28px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .primary-button {
+            background: var(--gold);
+            color: #080808;
+        }
+
+        .primary-button:hover {
+            background: white;
+            transform: translateY(-4px);
+        }
+
+        .secondary-button {
+            border: 1px solid var(--gold);
+            color: var(--gold);
+        }
+
+        .secondary-button:hover {
+            background: var(--gold);
+            color: #080808;
+            transform: translateY(-4px);
+        }
+
+        /* HERO BOTTOM */
+
+        .hero-bottom {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 60px;
+            padding: 22px 15px;
+            background: rgba(0,0,0,0.8);
+            border-top: 1px solid rgba(212,175,55,0.3);
+        }
+
+        .hero-bottom span {
+            color: var(--gold);
+            font-size: 11px;
+            letter-spacing: 2px;
+            font-weight: 600;
+        }
+
+        /* INTRODUCTION */
+
+        .intro {
+            padding: 100px 8%;
+            text-align: center;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        .intro p {
+            max-width: 750px;
+            margin: auto;
+            color: #aaa;
+            line-height: 2;
+        }
+
+        /* FEATURE CARDS */
+
+        .features {
+            padding: 80px 8%;
+            background: #101010;
+            text-align: center;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 25px;
+            margin-top: 45px;
+        }
+
+        .feature-card {
+            padding: 35px 25px;
+            background: #080808;
+            border: 1px solid rgba(212,175,55,0.2);
+            border-radius: 10px;
+            transition: 0.4s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--gold);
+            box-shadow: 0 12px 30px rgba(212,175,55,0.1);
+        }
+
+        .feature-card h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--gold);
+            font-size: 23px;
+            margin-bottom: 15px;
+        }
+
+        .feature-card p {
+            color: #aaa;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        /* CTA */
+
+        .cta {
+            padding: 100px 20px;
+            text-align: center;
+            background:
+                linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.9)),
+                url("https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=1600")
+                center/cover;
+        }
+
+        .cta h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            color: var(--gold);
+            margin-bottom: 15px;
+        }
+
+        .cta p {
+            color: #ddd;
+            margin-bottom: 30px;
+        }
+
+        /* FOOTER */
+
+        footer {
+            padding: 35px 20px;
+            text-align: center;
+            background: #050505;
+            border-top: 1px solid rgba(212,175,55,0.2);
+        }
+
+        footer p {
+            color: #888;
+            font-size: 13px;
+        }
+
+        /* ANIMATION */
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(35px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* MOBILE */
+
+        @media(max-width: 850px) {
+
+            .navbar {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 18px;
+            }
+
+            .navbar nav {
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 18px;
+            }
+
+            .hero {
+                min-height: 650px;
+                padding: 70px 7%;
+            }
+
+            .hero-bottom {
+                gap: 18px;
+            }
+
+        }
+
+        @media(max-width: 500px) {
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .hero-text {
+                font-size: 14px;
+            }
+
+            .hero-bottom span {
+                font-size: 9px;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+
+            .cta h2 {
+                font-size: 32px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+
+    <header class="navbar">
+
+        <a href="index.html" class="logo">
+
+            <img src="Dosca Luxury Catering Emblem.png" alt="DOSCA Logo">
+
+            <span>
+                DOSCA
+                <small>CATERERS</small>
+            </span>
+
+        </a>
+
+
+        <nav>
+
+            <a href="index.html" class="active">Home</a>
+
+            <a href="about.html">About</a>
+
+            <a href="services.html">Services</a>
+
+          
+
+            <a href="gallery.html">Gallery</a>
+
+        </nav>
+
+
+        <a href="booking.html" class="nav-button">
+            Book Us
+        </a>
+
+    </header>
+
+
+    <main>
+
+        <!-- HERO -->
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <p class="subtitle">
+                    WELCOME TO DOSCA CATERERS
+                </p>
+
+                <h1>
+                    Creating <span>Unforgettable</span><br>
+                    Dining Experiences.
+                </h1>
+
+                <p class="hero-text">
+                    From intimate gatherings to grand celebrations,
+                    we bring exceptional flavours, elegance and
+                    unforgettable dining experiences to every occasion.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a href="booking.html" class="primary-button">
+                        Book Your Event
+                    </a>
+
+                    <a href="services.html" class="secondary-button">
+                        Explore Our Services
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="hero-bottom">
+
+                <span>QUALITY FOOD</span>
+
+                <span>EXCEPTIONAL SERVICE</span>
+
+                <span>UNFORGETTABLE EVENTS</span>
+
+            </div>
+
+        </section>
+
+
+        <!-- INTRODUCTION -->
+
+        <section class="intro">
+
+            <p class="subtitle">THE DOSCA EXPERIENCE</p>
+
+            <h2 class="section-title">
+                More Than Just Catering
+            </h2>
+
+            <p>
+                At DOSCA CATERERS, we believe great food brings people
+                together. We combine quality cuisine, elegant presentation
+                and professional hospitality to make every occasion special.
+
+                Whether it's a wedding, birthday, graduation or corporate
+                gathering, we're here to make your experience exceptional.
+            </p>
+
+        </section>
+
+
+        <!-- FEATURES -->
+
+        <section class="features">
+
+            <p class="subtitle">WHY CHOOSE US</p>
+
+            <h2 class="section-title">
+                The DOSCA Difference
+            </h2>
+
+            <div class="feature-grid">
+
+                <div class="feature-card">
+
+                    <h3>Quality Cuisine</h3>
+
+                    <p>
+                        Delicious meals prepared with care,
+                        quality ingredients and attention to detail.
+                    </p>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <h3>Elegant Presentation</h3>
+
+                    <p>
+                        Beautiful food presentation that adds
+                        sophistication to every occasion.
+                    </p>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <h3>Professional Service</h3>
+
+                    <p>
+                        Dedicated service designed to make
+                        your event smooth and memorable.
+                    </p>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <h3>Memorable Experiences</h3>
+
+                    <p>
+                        We focus on the details that turn
+                        ordinary gatherings into special memories.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CALL TO ACTION -->
+
+        <section class="cta">
+
+            <p class="subtitle">YOUR EVENT DESERVES THE BEST</p>
+
+            <h2>Let's Make It Unforgettable</h2>
+
+            <p>
+                Tell us about your occasion and let DOSCA
+                take care of the experience.
+            </p>
+
+            <a href="booking.html" class="primary-button">
+                Book DOSCA Today
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            &copy; 2026 DOSCA CATERERS.
+            All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html>
